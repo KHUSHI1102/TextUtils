@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import About from './components/About';
 import Alert from './components/Alert';
@@ -7,14 +7,17 @@ import TextForm from './components/TextForm';
 import {
   BrowserRouter as Router,
   Routes,
-  Route 
+  Route
 } from "react-router-dom";
 
-
+interface Alert {
+  type: string;
+  msg: string;
+}
 
 function App() {
    const [mode, setMode] = useState('light');
-   const [alert,  setAlert] = useState('null');
+   const [alert,  setAlert] = useState<Alert | null>(null);
 
    const showAlert =(message,type)=>{
     setAlert({
